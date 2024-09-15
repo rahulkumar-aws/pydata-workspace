@@ -14,9 +14,35 @@ python -m venv .venv
 ```bash
 source venv/bin/activate
 ```
+**How to write requirements.txt**
+```python
+###### Requirements without Version Specifiers ######
+nose
+nose-cov
+beautifulsoup4
+#
+###### Requirements with Version Specifiers ######
+#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
+docopt == 0.6.1             # Version Matching. Must be version 0.6.1
+keyring >= 4.1.1            # Minimum version 4.1.1
+coverage != 3.5             # Version Exclusion. Anything except version 3.5
+Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+```
+
+Two conditions can be combined with AND by separating them with a comma. In the following example, a version of 1.0 or later and 2.0 or earlier (1.0 <= ver <= 2.0) is installed.
+
+```python
+package >= 1.0, <= 2.0
+```
+
 **Install requirement.txt**
 ```bash
 python install -r requirements.txt
+```
+
+**Create requirements.txt with `pip freeze`**
+```bash
+pip freeze > requirements.txt
 ```
 
 ### 2. Series & DataFrame Overview
